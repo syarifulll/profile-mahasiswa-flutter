@@ -124,8 +124,13 @@ class CustomDrawer extends StatelessWidget {
                     ),
                   );
 
+                  // Jika user menekan YA → kembali ke SplashScreen
                   if (keluar == true) {
-                    Navigator.popUntil(context, ModalRoute.withName('/'));
+                    Navigator.pushNamedAndRemoveUntil(
+                      context,
+                      '/splash', // pastikan route ini sudah terdaftar di main.dart
+                      (route) => false, // hapus semua route sebelumnya
+                    );
                   }
                 },
                 style: ElevatedButton.styleFrom(
